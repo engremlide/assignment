@@ -1,0 +1,5 @@
+CREATE TABLE no_of_days
+(
+ days int not null,
+ primary key (days)
+);

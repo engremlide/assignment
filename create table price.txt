@@ -1,0 +1,5 @@
+CREATE TABLE price
+(
+ priceval numeric not null, 
+ primary key (priceval)
+);
