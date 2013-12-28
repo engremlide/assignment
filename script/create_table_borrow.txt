@@ -1,8 +1,0 @@
-CREATE TABLE borrow 
-(
- transactionid serial not null,
- customerid serial not null,
- cdno serial not null, 
- payment int not null,
- PRIMARY KEY(transactionid) 
-);
