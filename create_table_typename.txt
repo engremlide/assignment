@@ -1,0 +1,5 @@
+CREATE TABLE typename
+(
+ typenamedisk char(3) not null, 
+ primary key (typenamedisk)
+);
