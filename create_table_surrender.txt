@@ -1,0 +1,8 @@
+CREATE TABLE surrender 
+(
+ transactionid serial not null,
+ customerid serial not null,
+ cdno serial not null, 
+ penalty int not null,
+ PRIMARY KEY(transactionid)
+);
