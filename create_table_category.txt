@@ -1,0 +1,5 @@
+CREATE TABLE category
+(
+ categoryname varchar(32) not null,
+ primary key (categoryname)
+);
