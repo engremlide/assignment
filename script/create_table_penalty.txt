@@ -1,0 +1,5 @@
+CREATE TABLE penalty
+(
+ penaltyval numeric not null,
+ primary key (penaltyval)
+);
