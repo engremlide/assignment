@@ -57,6 +57,7 @@ def index(req):
         <p><a class="btn btn-lg btn-success" href="http://pythonista.learning.edu/~edelmer/no_of_days?no_of_days=" role="button">No of Days</a></p>
         <p><a class="btn btn-lg btn-success" href="http://pythonista.learning.edu/~edelmer/penalty?penaltyval=" role="button">Penalty</a></p>
         <p><a class="btn btn-lg btn-success" href="http://pythonista.learning.edu/~edelmer/price?priceval=" role="button">Price </a></p>
+        <p><a class="btn btn-lg btn-success" href="http://pythonista.learning.edu/~edelmer/category?categoryname=" role="button">Movie Category </a></p>
       </div>
 
       <!-- Site footer -->
@@ -83,7 +84,10 @@ def index(req):
     tablebegin = """<table class="table table-hover table-condensed">"""
     tableend = """</table>
     """
-    panelend = """
+    panelend = """ <table>
+    <tr>
+    <td><a href="http://pythonista.learning.edu/~edelmer/index.py".class="btn btn-info btn-sm active">Back</a><td>
+    </table>
       </div>
       </div>
     """

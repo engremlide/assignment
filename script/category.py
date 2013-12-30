@@ -1,7 +1,7 @@
 import psycopg2
 import cgi
 
-def getno_of_days(no_of_days):
+def getcategory(categoryname):
     constr = """
        dbname='edelmerdb'
        user='edelmer'
@@ -11,12 +11,12 @@ def getno_of_days(no_of_days):
 
     conn = psycopg2.connect(constr)
     curr = conn.cursor()
-    curr.execute("select * from  no_of_days ")
+    curr.execute("select * from  category ")
     rows = curr.fetchall()
     return rows
 
-def index(req, no_of_days):
-    no_of_days = cgi.escape(no_of_days)
+def index(req, categoryname):
+    categoryname = cgi.escape(categoryname)
     header = """
     <!DOCTYPE html>
     <html>
@@ -51,15 +51,14 @@ def index(req, no_of_days):
     panelbegin = """
         <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Listing</div>
         <div class="panel-body">
-        <form action = "save_no_of_days.py">
+        <form action = "savecategory.py">
         <table border = "1">
         <tr>
-        <td>No of days checkout:</td>
+        <td>Movie Category:</td>
         </tr>
         <tr>
-        <td> <input type='text' name='no_of_days'> </td>
+        <td> <input type='text' name='categoryname'> </td>
         </tr>
         </table>
         <input type = 'submit' value = 'save' class="btn btn-info btn-sm active">

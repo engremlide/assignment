@@ -40,7 +40,9 @@ def index(req):
           <td class="active"><a href="http://pythonista.learning.edu/~edelmer/index.py">Home</a>
           <td><a href="http://pythonista.learning.edu/~edelmer/customer.py">Customer</a></td>
           <td><a href="http://pythonista.learning.edu/~edelmer/cd.py">Movie List</a></td>
-          <td><a href="http://pythonista.learning.edu/~edelmer/transaction.py">Transaction</a></td>
+          <td><a href="http://pythonista.learning.edu/~edelmer/transactionout.py">Transaction OUT</a></td>
+          <td><a href="http://pythonista.learning.edu/~edelmer/transactionin.py">Transaction IN</a></td>
+          <td><a href="http://pythonista.learning.edu/~edelmer/setting.py">Settings</a></td>
           <td><a href="http://pythonista.learning.edu/~edelmer/about.py">About</a></td>
           <td><a href="http://pythonista.learning.edu/~edelmer/contact.py">Contact</a></td>
           </tr>

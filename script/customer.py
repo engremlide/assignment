@@ -65,6 +65,11 @@ def index(req):
     <tr>
     <td><a href="http://pythonista.learning.edu/~edelmer/addcustomer.py?customerid=" class="btn btn-info btn-sm active">Add New Customer</a><td>
     </table>
+    <table>
+    <tr>
+    <td><a href="http://pythonista.learning.edu/~edelmer/index.py".class="btn btn-info btn-sm active">Back</a><td>
+    </table>
+
         </div>
         </div>
     """

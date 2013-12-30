@@ -79,13 +79,16 @@ def index(req, cdno):
         </tr>
         </table>
         <input type = 'submit' value = 'save' class="btn btn-info btn-sm active">
-        <input type = 'reset' value = 'cancel' class="btn btn-info btn-sm active">
+        <input type = 'reset' value = 'reset' class="btn btn-info btn-sm active">
         </form>
         """
     tablebegin = """<table class="table table-hover table-condensed">
     """
     tableend = "</table>"
-    panelend = """
+    panelend = """<table>
+    <tr>
+    <td><a href="http://pythonista.learning.edu/~edelmer/index.py".class="btn btn-info btn-sm active">Back</a><td>
+    </table>
        </div>
       </div>
     """
