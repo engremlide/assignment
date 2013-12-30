@@ -1,7 +1,7 @@
 import psycopg2
 import cgi
 
-def addcast(castname):
+def getprice():
     constr = """
        dbname='edelmerdb'
        user='edelmer'
@@ -11,18 +11,17 @@ def addcast(castname):
 
     conn = psycopg2.connect(constr)
     curr = conn.cursor()
-    curr.execute("""INSERT INTO casting
-             (castname)
-             VALUES ('""" +castname+"')")
-    conn.commit()
+    curr.execute("select * from  price ")
+    rows = curr.fetchall()
+    return rows
 
-def index(req, castname):
-    castname = cgi.escape(castname)
+def index(req, priceval):
+    priceval = cgi.escape(priceval)
     header = """
     <!DOCTYPE html>
     <html>
     <head>
-    <title>Grifter's Customer </title>
+    <title>Grifter's Movies Database Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,30 +31,42 @@ def index(req, castname):
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    </head>
+   <![endif]-->
+
+</head>
     """
     bodybegin = """
-    <body>
-    <h1>Movies 'Main Cast has been successfully added!!</h1>
+       <body>
+        <h1>Grifter's 'Movie Penalty </h1>
     """
     bodyend = """
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
+           <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+             <script src="https://code.jquery.com/jquery.js"></script>
+           <!-- Include all compiled plugins (below), or include individual files as needed -->
+           <script src="js/bootstrap.min.js"></script>
         </body>
-    </html>
+</html>
     """
 
     panelbegin = """
         <div class="panel panel-default">
         <!-- Default panel contents -->
+        <div class="panel-heading">Listing</div>
         <div class="panel-body">
+        <form action = "saveprice.py">
+        <table border = "1">
+        <tr>
+        <td>Movie Price:</td>
+        </tr>
+        <tr>
+        <td> <input type='text' name='priceval'> </td>
+        </tr>
+        </table>
+        <input type = 'submit' value = 'save' class="btn btn-info btn-sm active">
+        <input type = 'reset' value = 'cancel' class="btn btn-info btn-sm active">
+        </form>
         """
     tablebegin = """<table class="table table-hover table-condensed">
-        <a href="http://pythonista.learning.edu/~edelmer/index.py" class="btn btn-info btn-sm active">Home</a>
-        <a href="http://pythonista.learning.edu/~edelmer/setting.py" class="btn btn-info btn-sm active">Back to Setting Module</a>
     """
     tableend = "</table>"
     panelend = """
@@ -63,9 +74,5 @@ def index(req, castname):
       </div>
     """
 
-    result = addcast (castname)
-    result = '<div class = "container">'
-    result +='<div >'
-    result +='<h1> '+str(result[0])+'</h1></div></div>'
 
     return header + bodybegin + panelbegin + tablebegin + tableend + panelend + bodyend

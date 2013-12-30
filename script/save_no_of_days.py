@@ -1,7 +1,7 @@
 import psycopg2
 import cgi
 
-def addcast(castname):
+def addno_of_days(no_of_days):
     constr = """
        dbname='edelmerdb'
        user='edelmer'
@@ -11,13 +11,13 @@ def addcast(castname):
 
     conn = psycopg2.connect(constr)
     curr = conn.cursor()
-    curr.execute("""INSERT INTO casting
-             (castname)
-             VALUES ('""" +castname+"')")
+    curr.execute("""INSERT INTO no_of_days
+             (days)
+             VALUES ('""" +no_of_days+"')")
     conn.commit()
 
-def index(req, castname):
-    castname = cgi.escape(castname)
+def index(req, no_of_days):
+    no_of_days = cgi.escape(no_of_days)
     header = """
     <!DOCTYPE html>
     <html>
@@ -37,7 +37,7 @@ def index(req, castname):
     """
     bodybegin = """
     <body>
-    <h1>Movies 'Main Cast has been successfully added!!</h1>
+    <h1>Grifter's 'Movie Days Checkout has been successfully added!!</h1>
     """
     bodyend = """
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -63,7 +63,7 @@ def index(req, castname):
       </div>
     """
 
-    result = addcast (castname)
+    result = addno_of_days (no_of_days)
     result = '<div class = "container">'
     result +='<div >'
     result +='<h1> '+str(result[0])+'</h1></div></div>'
